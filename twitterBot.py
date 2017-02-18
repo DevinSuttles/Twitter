@@ -39,3 +39,4 @@ myStreamListener = MyStreamListener()
 myStream = tweepy.Stream(auth = api.auth, listener=MyStreamListener())
 
 myStream.filter(track=['@DevinSuttles'])
+myStream.userstream(_with = "users")
