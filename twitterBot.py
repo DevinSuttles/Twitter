@@ -28,6 +28,7 @@ auth.set_access_token(access_token, access_secret)
 
 api = tweepy.API(auth)
 
+"""
 public_tweets = api.home_timeline(count = 10)
 for tweet in public_tweets:
     print tweet.text
@@ -42,6 +43,7 @@ class MyStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
         print(status.text)
+        api.update_status(".@" + status.user.screen_name + " Time", status.id)
         
     def on_error(self, status_code):
         if status_code == 420:
@@ -50,4 +52,5 @@ class MyStreamListener(tweepy.StreamListener):
         
 myStreamListener = MyStreamListener()
 myStream = tweepy.Stream(auth = api.auth, listener=MyStreamListener())
-"""
+
+myStream.filter(track=['@DevinSuttles'])
