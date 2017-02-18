@@ -6,11 +6,11 @@ import wolframalpha
 import tweepy     
 
 #Use your keys
-consumer_key = "LwI9JtZEFE8JpxDAdTuKJj7cc"#account.key
-consumer_secret = "SHm5nXAb0iMZHJF4qPNwSx2WFalLybOFPfNc2ReJ1CkeuidLfD"#account.secret 
-access_token = "480036925-UviFhAhHmBz6W0xtn4p5KxSeT5O8ogDKuqUjir0K"#account.accessToken
-access_secret = "uxmFiXzeUitAMq0NDDNrpYAwI3rA2z42jyOCHtJOVUJiL"#account.accessTokenSecret
-wolf_ID="KQP6LU-6GU23P4A6L"
+consumer_key = ""#account.key
+consumer_secret = ""#account.secret 
+access_token = ""#account.accessToken
+access_secret = ""#account.accessTokenSecret
+wolf_ID="" #wolfram alpha app id
 
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -24,8 +24,8 @@ client = wolframalpha.Client(wolf_ID)
 class MyStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
-        print(status.text[14:])
-        res = client.query(status.text[14:])
+        print(status.text[11:])
+        res = client.query(status.text[11:])
         first = next(res.results, None)
         if first:
             api.update_status(".@" + status.user.screen_name + " " + first.text, status.id)
@@ -38,5 +38,5 @@ class MyStreamListener(tweepy.StreamListener):
 myStreamListener = MyStreamListener()
 myStream = tweepy.Stream(auth = api.auth, listener=MyStreamListener())
 
-myStream.filter(track=['@DevinSuttles'])
+myStream.filter(track=['@Ask_Newton'])
 myStream.userstream(_with = "users")
