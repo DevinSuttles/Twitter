@@ -7,11 +7,11 @@ import tweepy
 import variable  
 
 #Use your keys
-consumer_key = "B1juxygSfT0AyJFN5wzSNepuD"#account.key
-consumer_secret = "aKHY2HQInQRP2ZTlmqbF1JhDcHv28D9ASjfAyr7cBkAGzDPGKp"#account.secret 
-access_token = "833032047111323653-Ii4JlZfI7sJ9HuMOcK4GCECdfGuzjUH"#account.accessToken
-access_secret = "YsA30AR74pqt79yCahbVmdtWX8IdfeMoHTetjS5m7xkoj"#account.accessTokenSecret
-wolf_ID="KQP6LU-6GU23P4A6L"
+consumer_key = ""
+consumer_secret = ""
+access_token = ""
+access_secret = ""
+wolf_ID=""#Wolfram Alpha App ID
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
