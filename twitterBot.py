@@ -45,18 +45,18 @@ class MyStreamListener(tweepy.StreamListener):
                     except AttributeError:
                             print("Attribute Error from " +status.user.screen_name)
                             # pass
-                            self.api.update_status(".@" + status.user.screen_name + " " + errorQuote, status.id)
+                            self.api.update_status("@" + status.user.screen_name + " " + errorQuote, status.id)
                     if first:
                         try:
-                            self.api.update_status(".@" + status.user.screen_name + " " + first.text, status.id)
+                            self.api.update_status("@" + status.user.screen_name + " " + first.text, status.id)
                         except Exception:
                             print("Exception Error from " + status.user.screen_name)
                             # pass
-                            self.api.update_status(".@" + status.user.screen_name + " " + errorQuote, status.id)
+                            self.api.update_status("@" + status.user.screen_name + " " + errorQuote, status.id)
                 except UnboundLocalError:
                     print("UnboundLocalError from " + status.user.screen_name)
                     # pass
-                    self.api.update_status(".@" + status.user.screen_name + " " + errorQuote, status.id)
+                    self.api.update_status("@" + status.user.screen_name + " " + errorQuote, status.id)
         except tweepy.TweepError:
             print("TweepError: Probably duplicate error")
             # pass
