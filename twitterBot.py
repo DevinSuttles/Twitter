@@ -11,7 +11,7 @@ with open("newton.txt", "r") as newtonsMind:
     array = []
     for quote in newtonsMind:
         array.append(quote)
-
+print("Before listener")
 #override tweepy.StreamListener to add logic to on_status
 class MyStreamListener(tweepy.StreamListener):
     consumer_key = "B1juxygSfT0AyJFN5wzSNepuD"#account.key
@@ -33,7 +33,7 @@ class MyStreamListener(tweepy.StreamListener):
         self.index +=  1
         if self.index == 5:
             self.index = 0
-        
+        print("Got tweet.")
         errorQuote = array[self.index];
         print(status.text[11:])
         try:
@@ -67,7 +67,7 @@ class MyStreamListener(tweepy.StreamListener):
         
 myStreamListener = MyStreamListener()
 myStream = tweepy.Stream(auth = myStreamListener.api.auth, listener=myStreamListener)
-
+print("After listener")
 myStream.filter(track=['@Ask_Newton'])
 myStream.userstream(_with = "users")
 
