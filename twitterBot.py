@@ -1,6 +1,7 @@
 """
 Created on Fri Oct 25 21:51:08 2017
 @author: Devin Suttles
+
 """
 import wolframalpha
 import tweepy   
@@ -30,7 +31,7 @@ class MyStreamListener(tweepy.StreamListener):
     def on_status(self, status):
         #increment through the quotes
         self.index +=  1
-        if self.index == 5:#stuff
+        if self.index == 5:
             self.index = 0
         
         errorQuote = array[self.index];
@@ -42,22 +43,22 @@ class MyStreamListener(tweepy.StreamListener):
                     try:
                         first = next(res.results, None)
                     except AttributeError:
-                            print "Attribute Error from " +status.user.screen_name
+                            print("Attribute Error from " +status.user.screen_name)
                             # pass
                             self.api.update_status(".@" + status.user.screen_name + " " + errorQuote, status.id)
                     if first:
                         try:
                             self.api.update_status(".@" + status.user.screen_name + " " + first.text, status.id)
                         except Exception:
-                            print "Exception Error from " + status.user.screen_name
+                            print("Exception Error from " + status.user.screen_name)
                             # pass
                             self.api.update_status(".@" + status.user.screen_name + " " + errorQuote, status.id)
                 except UnboundLocalError:
-                    print "UnboundLocalError from " + status.user.screen_name
+                    print("UnboundLocalError from " + status.user.screen_name)
                     # pass
                     self.api.update_status(".@" + status.user.screen_name + " " + errorQuote, status.id)
         except tweepy.TweepError:
-            print "TweepError: Probably duplicate error"
+            print("TweepError: Probably duplicate error")
             # pass
     def on_error(self, status_code):
         if status_code == 420:
@@ -69,3 +70,6 @@ myStream = tweepy.Stream(auth = myStreamListener.api.auth, listener=myStreamList
 
 myStream.filter(track=['@Ask_Newton'])
 myStream.userstream(_with = "users")
+
+
+
