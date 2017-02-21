@@ -14,11 +14,11 @@ with open("newton.txt", "r") as newtonsMind:
 
 #override tweepy.StreamListener to add logic to on_status
 class MyStreamListener(tweepy.StreamListener):
-    consumer_key = "B1juxygSfT0AyJFN5wzSNepuD"#account.key
-    consumer_secret = "aKHY2HQInQRP2ZTlmqbF1JhDcHv28D9ASjfAyr7cBkAGzDPGKp"#account.secret 
-    access_token = "833032047111323653-Ii4JlZfI7sJ9HuMOcK4GCECdfGuzjUH"#account.accessToken
-    access_secret = "YsA30AR74pqt79yCahbVmdtWX8IdfeMoHTetjS5m7xkoj"#account.accessTokenSecret
-    wolf_ID="KQP6LU-6GU23P4A6L"
+    consumer_key = "#key"
+    consumer_secret = "#secret" 
+    access_token = "#accessToken"
+    access_secret = "accessTokenSecret"
+    wolf_ID="#"
 
     def __init__(self):
         auth = tweepy.OAuthHandler(MyStreamListener.consumer_key, MyStreamListener.consumer_secret)
